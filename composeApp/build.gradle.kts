@@ -73,6 +73,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -108,6 +109,7 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(compose.desktop.uiTestJUnit4)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.oshi.core)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

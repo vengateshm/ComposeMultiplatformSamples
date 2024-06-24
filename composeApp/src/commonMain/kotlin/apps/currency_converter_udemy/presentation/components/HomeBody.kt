@@ -27,8 +27,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,8 +36,6 @@ import apps.currency_converter_udemy.ui.theme.headerColor
 import apps.currency_converter_udemy.utils.CustomFontFamily
 import apps.currency_converter_udemy.utils.calculateExchangeRate
 import apps.currency_converter_udemy.utils.convertAmount
-import composemultiplatformsamples.composeapp.generated.resources.Res
-import composemultiplatformsamples.composeapp.generated.resources.bebas_neue_regular
 
 @Composable
 fun HomeBody(
