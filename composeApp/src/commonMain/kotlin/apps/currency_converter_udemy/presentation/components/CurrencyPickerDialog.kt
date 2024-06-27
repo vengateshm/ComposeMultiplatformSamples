@@ -72,7 +72,8 @@ fun CurrencyPickerDialog(
                     onValueChange = { query ->
                         searchQuery = query.uppercase()
                         if (query.isNotEmpty()) {
-                            val filtered = allCurrencies.filter { it.code.contains(query.uppercase()) }
+                            val filtered =
+                                allCurrencies.filter { it.code.contains(query.uppercase()) }
                             allCurrencies.clear()
                             allCurrencies.addAll(filtered)
                         } else {

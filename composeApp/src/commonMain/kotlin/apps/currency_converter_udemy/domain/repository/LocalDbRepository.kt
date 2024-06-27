@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface LocalDbRepository {
     fun configureDb()
     suspend fun insertCurrencyData(currency: Currency)
-    fun readCurrencyData():Flow<RequestState<List<Currency>>>
+    fun readCurrencyData(): Flow<RequestState<List<Currency>>>
     suspend fun cleanUp()
 }

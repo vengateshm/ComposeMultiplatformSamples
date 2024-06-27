@@ -52,16 +52,19 @@ fun <T> RequestState<T>.DisplayResult(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            when(state) {
+            when (state) {
                 is RequestState.Error -> {
                     onError?.invoke(state.getErrorMessage())
                 }
+
                 RequestState.Idle -> {
                     onIdle?.invoke()
                 }
+
                 RequestState.Loading -> {
                     onLoading?.invoke()
                 }
+
                 is RequestState.Success -> {
                     onSuccess?.invoke(state.getSuccessData())
                 }

@@ -1,7 +1,11 @@
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
+import apps.energy_insight_dashboard.screens.dashboard.Dashboard
 import apps.whatsapp.model.WindowSize
 import apps.whatsapp.model.WindowType
 import io.kamel.core.config.KamelConfig
@@ -11,12 +15,21 @@ import io.kamel.image.config.Default
 import io.kamel.image.config.LocalKamelConfig
 import io.kamel.image.config.batikSvgDecoder
 import io.kamel.image.config.resourcesFetcher
+import java.awt.Dimension
 
 fun main() = application {
+    val state = rememberWindowState(
+        width = 800.dp, height = 600.dp,
+        placement = WindowPlacement.Floating
+    )
+
     Window(
         onCloseRequest = ::exitApplication,
         title = "ComposeMultiplatformSamples",
+        state = state,
+        resizable = true
     ) {
+        window.minimumSize = Dimension(800, 600)
 
         val desktopConfig = KamelConfig {
             takeFrom(KamelConfig.Default)
@@ -27,8 +40,9 @@ fun main() = application {
             // An alternative svg decoder
             batikSvgDecoder()
         }
-        CompositionLocalProvider(LocalKamelConfig provides desktopConfig){
-            App(windowSize = getWindowSize())
+        CompositionLocalProvider(LocalKamelConfig provides desktopConfig) {
+            //BezierCurveCanvas()
+            Dashboard()
         }
     }
 }

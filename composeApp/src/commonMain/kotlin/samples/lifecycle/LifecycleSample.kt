@@ -35,7 +35,10 @@ fun LifecycleSample(
     viewModel: LifecycleSampleViewModel = viewModel()
 ) {
     LifecycleLogger()
-    val count by counterFlow.collectAsStateWithLifecycle(initialValue = 0, minActiveState = Lifecycle.State.CREATED)
+    val count by counterFlow.collectAsStateWithLifecycle(
+        initialValue = 0,
+        minActiveState = Lifecycle.State.CREATED
+    )
 //    val count by viewModel.counterFlow.collectAsStateWithLifecycle(initialValue = 0)
     Column(
         modifier = Modifier.fillMaxSize(),

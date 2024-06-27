@@ -67,7 +67,7 @@ fun ChatDetailHeader(modifier: Modifier = Modifier, chat: Chat) {
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
-            if(chat.isOnline) {
+            if (chat.isOnline) {
                 Text(
                     text = "Online",
                     color = Color(0XFF6E7FA9),
@@ -80,7 +80,10 @@ fun ChatDetailHeader(modifier: Modifier = Modifier, chat: Chat) {
         Spacer(modifier = Modifier.width(16.dp))
         Icon(painter = painterResource(Res.drawable.ic_video), contentDescription = null)
         Spacer(modifier = Modifier.width(16.dp))
-        Icon(painter = painterResource(Res.drawable.ic_search_chat_detail), contentDescription = null)
+        Icon(
+            painter = painterResource(Res.drawable.ic_search_chat_detail),
+            contentDescription = null
+        )
         Spacer(modifier = Modifier.width(16.dp))
         Spacer(modifier = Modifier.width(16.dp))
         Icon(painter = painterResource(Res.drawable.ic_arrow_down), contentDescription = null)

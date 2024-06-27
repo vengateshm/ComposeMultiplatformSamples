@@ -8,7 +8,8 @@ group = "dev.vengateshm.compose.multiplatform.samples"
 version = "1.0.0"
 application {
     mainClass.set("dev.vengateshm.compose.multiplatform.samples.ApplicationKt")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
+    applicationDefaultJvmArgs =
+        listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
 }
 
 dependencies {

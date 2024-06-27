@@ -1,14 +1,14 @@
 {
-  "images" : [
+  "images": [
     {
-      "filename" : "weather-app-icon-512.png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "512x512"
+      "filename": "weather-app-icon-512.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "512x512"
     }
   ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
+  "info": {
+    "author": "xcode",
+    "version": 1
   }
 }

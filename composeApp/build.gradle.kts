@@ -15,6 +15,8 @@ plugins {
 }
 
 kotlin {
+    tasks.create("testClasses")
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -31,7 +33,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
@@ -48,7 +50,7 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
 
     listOf(
@@ -61,7 +63,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
