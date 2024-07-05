@@ -118,6 +118,8 @@ kotlin {
             implementation(compose.desktop.uiTestJUnit4)
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.oshi.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.cio)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
