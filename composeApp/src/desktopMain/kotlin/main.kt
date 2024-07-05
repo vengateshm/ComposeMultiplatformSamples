@@ -5,7 +5,7 @@ import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import apps.energy_insight_dashboard.screens.dashboard.Dashboard
+import apps.energy_insight_dashboard.EnergyAppEntryPoint
 import apps.whatsapp.model.WindowSize
 import apps.whatsapp.model.WindowType
 import io.kamel.core.config.KamelConfig
@@ -41,8 +41,7 @@ fun main() = application {
             batikSvgDecoder()
         }
         CompositionLocalProvider(LocalKamelConfig provides desktopConfig) {
-            //BezierCurveCanvas()
-            Dashboard()
+            App()
         }
     }
 }

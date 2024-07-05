@@ -17,9 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import apps.whatsapp.bgLeftPane
+import apps.whatsapp.ui.bgLeftPane
 import apps.whatsapp.model.Chat
-import apps.whatsapp.primaryGreen
+import apps.whatsapp.ui.primaryGreen
 import composemultiplatformsamples.composeapp.generated.resources.Res
 import composemultiplatformsamples.composeapp.generated.resources.ic_chat
 import org.jetbrains.compose.resources.painterResource

@@ -1,5 +1,6 @@
-package apps.energy_insight_dashboard.screens.dashboard
+package apps.energy_insight_dashboard.screens.desktop
 
+import LocalScreenSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,14 +16,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.dp
 import apps.energy_insight_dashboard.components.HistoryInfo
 import apps.energy_insight_dashboard.components.MemberInfo
 import apps.energy_insight_dashboard.components.TitleViewAll
 import apps.energy_insight_dashboard.components.VMediumSpacer
-import apps.energy_insight_dashboard.components.VSmallSpacer
 import apps.energy_insight_dashboard.data.repository.DeviceInfoRepositoryImpl
 import apps.energy_insight_dashboard.data.repository.MemberInfoRepositoryImpl
 import apps.energy_insight_dashboard.ui.AddMemberText
@@ -40,13 +38,8 @@ fun MembersAndHistorySection(
     val memberInfos = remember { MemberInfoRepositoryImpl().getMemberInfo() }
     val historyItem = remember { DeviceInfoRepositoryImpl().getDeviceHistoryInfo() }
 
-    val screenWidthInDp = with(LocalDensity.current) {
-        LocalWindowInfo.current.containerSize.width.toDp()
-    }
+    val screenWidthInDp = LocalScreenSize.current.wDP
     val isMinScreenWidth = screenWidthInDp <= 800.dp
-    val screenHeightInDp = with(LocalDensity.current) {
-        LocalWindowInfo.current.containerSize.height.toDp()
-    }
 
     Column {
         TitleViewAll(title = "Members", isMinScreenWidth = isMinScreenWidth)

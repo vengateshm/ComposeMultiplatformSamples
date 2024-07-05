@@ -23,7 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import apps.whatsapp.bgChatDetailTop
+import apps.whatsapp.ui.bgChatDetailTop
 import apps.whatsapp.model.Chat
 import composemultiplatformsamples.composeapp.generated.resources.Res
 import composemultiplatformsamples.composeapp.generated.resources.ic_arrow_down

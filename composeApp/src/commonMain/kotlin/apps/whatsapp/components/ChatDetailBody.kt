@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import apps.whatsapp.bgChatDetailCenter
+import apps.whatsapp.ui.bgChatDetailCenter
 import apps.whatsapp.model.Chat
 import apps.whatsapp.model.Message
 import composemultiplatformsamples.composeapp.generated.resources.Res

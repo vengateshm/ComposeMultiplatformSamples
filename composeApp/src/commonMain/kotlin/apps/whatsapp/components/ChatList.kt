@@ -1,5 +1,6 @@
 package apps.whatsapp.components
 
+import LocalWindowSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -33,9 +34,8 @@ import androidx.compose.ui.unit.sp
 import apps.whatsapp.model.Chat
 import apps.whatsapp.model.WindowType
 import apps.whatsapp.model.toUnreadCountText
-import apps.whatsapp.primaryGreen
 import apps.whatsapp.repository.ChatRepository
-import apps.whatsapp.utils.LocalWindowSize
+import apps.whatsapp.ui.primaryGreen
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 

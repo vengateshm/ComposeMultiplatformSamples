@@ -12,15 +12,13 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import apps.energy_insight_dashboard.ui.EnergyPrimaryBlue
-import org.jetbrains.skia.Font
-import org.jetbrains.skia.Paint
-import org.jetbrains.skia.TextLine
-import org.jetbrains.skia.Typeface
 
 @Composable
 fun EnergyChart(modifier: Modifier = Modifier, isMinScreenWidth: Boolean) {
@@ -41,6 +39,8 @@ fun EnergyChart(modifier: Modifier = Modifier, isMinScreenWidth: Boolean) {
     val textMarginTop = with(LocalDensity.current) {
         8.dp.toPx()
     }
+    val textMeasure = rememberTextMeasurer()
+
     Canvas(modifier = Modifier.padding(top = 4.dp).fillMaxSize()) {
         val width = size.width
         val height = size.height - marginBottom
@@ -73,8 +73,8 @@ fun EnergyChart(modifier: Modifier = Modifier, isMinScreenWidth: Boolean) {
                 size = Size(width = barWidth, height = barHeight),
                 cornerRadius = CornerRadius(x = 12f, y = 12f)
             )
-
-            drawContext.canvas.nativeCanvas.drawTextLine(
+            // Jetbrains Skia API
+            /*drawContext.canvas.nativeCanvas.drawTextLine(
                 TextLine.Companion.make(
                     if (isMinScreenWidth) days[index].first().toString() else days[index],
                     Font(typeface = Typeface.makeDefault(), size = textSize)
@@ -85,6 +85,20 @@ fun EnergyChart(modifier: Modifier = Modifier, isMinScreenWidth: Boolean) {
                     isAntiAlias = true
                     color = 0xFF454444.toInt()
                 }
+            )*/
+            val textLayoutResult = textMeasure.measure(
+                text = if (isMinScreenWidth) days[index].first().toString() else days[index],
+                style = TextStyle(
+                    color = Color(0XFF454444),
+                    fontSize = 12.sp
+                )
+            )
+            drawText(
+                textLayoutResult = textLayoutResult,
+                topLeft = Offset(
+                    x = left + (barWidth / 4),
+                    y = height + textMarginTop
+                )
             )
         }
     }

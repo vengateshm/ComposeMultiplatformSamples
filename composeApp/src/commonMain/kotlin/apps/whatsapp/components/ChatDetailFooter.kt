@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import apps.whatsapp.bgChatDetailBottom
+import apps.whatsapp.ui.bgChatDetailBottom
 import composemultiplatformsamples.composeapp.generated.resources.Res
 import composemultiplatformsamples.composeapp.generated.resources.ic_plus
 import composemultiplatformsamples.composeapp.generated.resources.ic_voice

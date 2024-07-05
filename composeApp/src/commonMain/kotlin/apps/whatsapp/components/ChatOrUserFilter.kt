@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import apps.whatsapp.color7D
-import apps.whatsapp.primaryGreen
+import apps.whatsapp.ui.color7D
+import apps.whatsapp.ui.primaryGreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -11,15 +11,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import apps.energy_insight_dashboard.ui.EnergyPrimaryBlue
-import org.jetbrains.skia.Font
-import org.jetbrains.skia.Paint
-import org.jetbrains.skia.TextLine
-import org.jetbrains.skia.Typeface
 
 @Composable
 fun HumidityLineChart(modifier: Modifier = Modifier) {
@@ -49,9 +47,18 @@ fun HumidityLineChart(modifier: Modifier = Modifier) {
     val textSize = with(LocalDensity.current) {
         14.sp.toPx()
     }
+    val adjustWidth = with(LocalDensity.current) {
+        8.dp.toPx()
+    }
+    val xOffset = with(LocalDensity.current) {
+        4.dp.toPx()
+    }
+    val textMeasure = rememberTextMeasurer()
+
     Canvas(modifier = Modifier.padding(top = 4.dp).fillMaxSize()) {
 
-        val scaledPoints = scalePoints(points, size.width, size.height - marginBottom)
+        val scaledPoints =
+            scalePoints(points, size.width - adjustWidth, size.height - marginBottom, xOffset)
 
         for (i in scaledPoints.indices) {
             if (i > 0) {
@@ -65,7 +72,8 @@ fun HumidityLineChart(modifier: Modifier = Modifier) {
                     start = Offset(scaledPoints[i].first, startY),
                     end = Offset(scaledPoints[i].first, endY)
                 )
-                drawContext.canvas.nativeCanvas.drawTextLine(
+                // Jetbrains Skia API
+                /*drawContext.canvas.nativeCanvas.drawTextLine(
                     TextLine.Companion.make(
                         texts[i].toString().plus("\u00B0"),
                         Font(typeface = Typeface.makeDefault(), size = textSize)
@@ -76,6 +84,20 @@ fun HumidityLineChart(modifier: Modifier = Modifier) {
                         isAntiAlias = true
                         color = 0xFF454444.toInt()
                     }
+                )*/
+                val textLayoutResult = textMeasure.measure(
+                    text = texts[i].toString().plus("\u00B0"),
+                    style = TextStyle(
+                        color = Color(0XFF454444),
+                        fontSize = 12.sp
+                    )
+                )
+                drawText(
+                    textLayoutResult = textLayoutResult,
+                    topLeft = Offset(
+                        x = scaledPoints[i].first - (textLayoutResult.size.width / 2f),
+                        y = endY + textMarginTop
+                    )
                 )
             }
         }
@@ -166,7 +188,8 @@ fun DrawScope.drawBezierCurve(
 fun scalePoints(
     points: List<Pair<Float, Float>>,
     canvasWidth: Float,
-    canvasHeight: Float
+    canvasHeight: Float,
+    xOffset: Float
 ): List<Pair<Float, Float>> {
     val minX = points.minOf { it.first }
     val maxX = points.maxOf { it.first }
@@ -177,6 +200,6 @@ fun scalePoints(
     val scaleY = canvasHeight / (maxY - minY)
 
     return points.map { point ->
-        Pair((point.first - minX) * scaleX, (point.second - minY) * scaleY)
+        Pair(((point.first - minX) * scaleX) + xOffset, (point.second - minY) * scaleY)
     }
 }

@@ -1,4 +1,4 @@
-package apps.energy_insight_dashboard.screens.dashboard
+package apps.energy_insight_dashboard.screens.desktop
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,10 +18,9 @@ import apps.energy_insight_dashboard.components.HMediumSpacer
 import apps.energy_insight_dashboard.components.VMediumSpacer
 import apps.energy_insight_dashboard.ui.DividerColor
 import apps.energy_insight_dashboard.ui.SmallDp
-import apps.energy_insight_dashboard.ui.XLargeDp
 
 @Composable
-fun Dashboard(
+fun EnergyAppDesktopEntryPoint(
     modifier: Modifier = Modifier,
 ) {
     Row(

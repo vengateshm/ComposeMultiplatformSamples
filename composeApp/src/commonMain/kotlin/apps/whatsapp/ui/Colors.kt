@@ -1,4 +1,4 @@
-package apps.whatsapp
+package apps.whatsapp.ui
 
 import androidx.compose.ui.graphics.Color
 

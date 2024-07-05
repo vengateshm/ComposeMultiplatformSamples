@@ -67,7 +67,7 @@ fun HistoryInfo(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = historyItem.status,
-                    fontSize = if (isMinScreenWidth) Size13 else Size15,
+                    fontSize = if (isMinScreenWidth) Size12 else Size15,
                     fontFamily = EnergyFontFamily(),
                     color = Color.Black.copy(alpha = 0.75f)
                 )

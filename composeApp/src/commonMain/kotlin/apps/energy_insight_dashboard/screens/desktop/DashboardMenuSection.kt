@@ -1,5 +1,6 @@
-package apps.energy_insight_dashboard.screens.dashboard
+package apps.energy_insight_dashboard.screens.desktop
 
+import LocalScreenSize
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,8 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.dp
 import apps.energy_insight_dashboard.components.DashboardMenu
 import apps.energy_insight_dashboard.components.ProfileImageName
@@ -38,9 +37,7 @@ fun DashboardMenuSection(
     val mainMenu = remember { repository.getDashboardMenu().take(4) }
     val settingsMenu = remember { repository.getDashboardMenu().takeLast(4) }
 
-    val screenWidthInDp = with(LocalDensity.current) {
-        LocalWindowInfo.current.containerSize.width.toDp()
-    }
+    val screenWidthInDp = LocalScreenSize.current.wDP
     val isMinScreenWidth = screenWidthInDp <= 800.dp
 
     val userProfile = remember {
