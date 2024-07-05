@@ -45,8 +45,8 @@ kotlin {
             sourceSetTree.set(KotlinSourceSetTree.test)
 
             dependencies {
-//                implementation("androidx.compose.ui:ui-test-junit4-android:1.5.4")
-                debugImplementation(libs.androidx.ui.test.manifest)
+                implementation(libs.core.ktx)
+                debugImplementation(libs.androidx.compose.ui.test.manifest)
             }
         }
     }
@@ -119,7 +119,8 @@ kotlin {
         // Adds common test dependencies
         commonTest.dependencies {
             implementation(libs.kotlin.test)
-
+            implementation(kotlin("test-annotations-common"))
+            implementation(libs.assertk)
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.uiTest)
         }
