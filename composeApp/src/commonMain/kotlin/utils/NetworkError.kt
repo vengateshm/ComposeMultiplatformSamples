@@ -1,0 +1,15 @@
+package utils
+
+enum class NetworkError : Error {
+    NO_INTERNET,
+    REQUEST_TIMEOUT,
+    BAD_REQUEST,
+    UN_AUTHORIZED,
+    FORBIDDEN,
+    SERIALIZATION,
+    SERVER_ERROR,
+    CONFLICT,
+    TOO_MANY_REQUESTS,
+    PAYLOAD_TOO_LARGE,
+    UNKNOWN;
+}
