@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "177179055476",
+    "project_id": "sample-264a3",
+    "storage_bucket": "sample-264a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177179055476:android:056765d96c7fe9eed38821",
+        "android_client_info": {
+          "package_name": "dev.vengateshm.compose.multiplatform.samples"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYoXoCj0V6gyHaQV_2dcTEoxWGtz5sVSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

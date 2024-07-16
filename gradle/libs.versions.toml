@@ -33,6 +33,9 @@ assertk = "0.28.1"
 coreKtx = "1.6.1"
 composeTest = "1.6.8"
 koinComposeMultiplatform = "1.2.0-Beta4"
+firebase-bom = "33.1.2"
+git-live = "1.13.0"
+google-services-plugin = "4.4.2"
 
 [libraries]
 #Android
@@ -109,6 +112,11 @@ stately-common = { module = "co.touchlab:stately-common", version.ref = "stately
 #Oshi core
 oshi-core = { module = "com.github.oshi:oshi-core", version.ref = "oshiCore" }
 
+#Firebase BOM
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+
+gitlive-firebase-firestore = { group = "dev.gitlive", name = "firebase-firestore", version.ref = "git-live" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
@@ -119,3 +127,4 @@ ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-plugin-serialization" }
 realm-plugin = { id = "io.realm.kotlin", version.ref = "realm" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services-plugin"}
