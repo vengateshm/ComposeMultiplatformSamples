@@ -65,6 +65,23 @@ kotlin {
         }
     }
 
+    val osName = System.getProperty("os.name")
+    val targetOs = when {
+        osName == "Mac OS X" -> "macos"
+        osName.startsWith("Win") -> "windows"
+        osName.startsWith("Linux") -> "linux"
+        else -> error("Unsupported OS: $osName")
+    }
+
+    val targetArch = when (val osArch = System.getProperty("os.arch")) {
+        "x86_64", "amd64" -> "x64"
+        "aarch64" -> "arm64"
+        else -> error("Unsupported arch: $osArch")
+    }
+
+    val version = "0.8.9" // or any more recent version
+    val target = "${targetOs}-${targetArch}"
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -117,9 +134,12 @@ kotlin {
             implementation(libs.androidx.navigation.compose)
 
             implementation(libs.gitlive.firebase.firestore)
+
+            implementation(libs.kotlinx.serialization)
         }
         val desktopMain by getting
         desktopMain.dependencies {
+            implementation("org.jetbrains.skiko:skiko-awt-runtime-$target:$version")
             implementation(compose.desktop.currentOs)
             implementation(compose.desktop.uiTestJUnit4)
             implementation(libs.kotlinx.coroutines.swing)
