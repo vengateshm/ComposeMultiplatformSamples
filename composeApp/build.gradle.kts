@@ -136,6 +136,7 @@ kotlin {
             implementation(libs.gitlive.firebase.firestore)
 
             implementation(libs.kotlinx.serialization)
+            implementation(libs.material3.adaptive)
         }
         val desktopMain by getting
         desktopMain.dependencies {
